@@ -1,0 +1,40 @@
+ion-content {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
+    ion-grid {
+
+        height: 100%;
+        display: flex;
+        max-width: 500px;
+        flex-direction: column;
+        justify-content: center;
+        
+        ion-row {
+            
+            width: 100%;
+
+            ion-item {
+                --background: var(--ion-color-light);
+                --border-color: var(--ion-color-medium);
+            }
+
+            ion-text {
+                
+                h1.login-title strong {
+                    text-align: center;
+                }
+            }
+
+            ion-button {
+                border-radius: 4px;
+            }
+        }
+    }
+}
