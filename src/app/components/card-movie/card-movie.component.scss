@@ -1,0 +1,35 @@
+ion-col {
+
+    padding: 0 2% 0 2%;
+
+    ion-card {
+        border-radius: 4px;
+        overflow: hidden;
+        height: 100%;
+        max-height: 380px;
+        min-height: 380px;
+        max-width: 300px;
+        margin: 15px auto;
+
+        ion-card-title {
+            font-size: 105%;
+            margin-bottom: 5px;
+        }
+
+        .movie-release-date {
+            text-transform: capitalize;
+        }
+
+        .container-img {
+            position: relative;
+            height: 190px;
+            width: 100%;
+        }
+
+        .image-movie {
+            height: 100%;
+            max-width: 100%;
+        }
+
+    }
+}

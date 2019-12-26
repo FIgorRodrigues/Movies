@@ -1,0 +1,36 @@
+h3 {
+    text-align: center;
+}
+
+ion-card {
+    margin-top: 20px;
+}
+
+.segment-scrollable.sc-ion-segment-md-h {
+    justify-content: center;
+}
+
+ion-segment {
+    margin-bottom: 0px;
+    padding: 10px;
+    width: 100%;
+}
+
+ion-segment-button {
+    width: 25px;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: 68%;
+}
+
+ion-button {
+    --box-shadow: none;   
+}
+
+.spinner-loading-movies {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 60%;
+    align-items: center;
+}

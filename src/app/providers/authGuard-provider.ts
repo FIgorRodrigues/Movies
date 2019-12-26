@@ -23,7 +23,6 @@ export class AuthGuard implements CanActivate {
 
     private _canLoad(): boolean {
         const isAuthenticated: boolean = this._authRespose;
-        console.log(isAuthenticated);
         if(!isAuthenticated){
             this._router.navigate(['/login']);
             return false;

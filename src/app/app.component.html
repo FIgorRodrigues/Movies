@@ -4,8 +4,7 @@
     menuId="menu"
     contentId="content"
     type="push"
-    class="ion-menu"
-    (ionDidOpen)="setUsernameInMenu()">
+    class="ion-menu">
 
   <ion-header>
     <ion-toolbar color="primary">
@@ -21,10 +20,22 @@
                 </ion-button>
             </ion-menu-toggle>
         </ion-buttons>
-    </ion-toolbar>
+    </ion-toolbar>    
   </ion-header>
 
+  <ion-content>
+    <ion-list>
+      <ion-menu-toggle (click)="logout()">
+        <ion-item>
+            <ion-icon name="exit" slot="start"></ion-icon>
+            <ion-label>Sair</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+
   </ion-menu>
+
   <ion-router-outlet
     id="content">
   </ion-router-outlet>

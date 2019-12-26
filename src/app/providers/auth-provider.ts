@@ -19,6 +19,11 @@ export class AuthProvider {
         return responseAuth;
     }
 
+    logout() {
+        this._authenticated.next(false);
+        return this.isAuthenticated;
+    }
+
     private _compareDataLogin(email: string, password: string): boolean {
         const emailIsValid: boolean = email == this._validEmail;
         const passwordIsValid: boolean = password == this._validPassword;

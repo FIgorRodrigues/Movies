@@ -1,7 +1,35 @@
-<ion-header></ion-header>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-menu-button slot="start" class="color-white button-menu"></ion-menu-button>
+    <ion-button slot="end" (click)="showFilterPopover($event)">
+      <ion-icon name="funnel"></ion-icon>
+    </ion-button>
+    <ion-title>Movies</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<ion-content color="light" padding>
-  Home Component  
+<ion-content color="light" class="ion-padding" fullscreen>
+
+  <ion-segment class="ion-padding" scrollable (ionChange)="_segmentChanged($event)">
+    <ion-segment-button checked value="releases">
+      <ion-label>Lançamentos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="popular">
+      <ion-label>Populares</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="bestRating">
+      <ion-label>Melhores</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <h3>Lista de filmes</h3>
+  <div *ngIf="movies.length == 0" class="spinner-loading-movies">
+    <ion-spinner color="primary" name="dots"></ion-spinner>
+  </div>
+  <for-card-movie 
+    [movies]="movies"
+    (sendIdMovie)="_goToPageInfoMovie($event)">
+  </for-card-movie>
 </ion-content>
 
 <ion-footer></ion-footer>
