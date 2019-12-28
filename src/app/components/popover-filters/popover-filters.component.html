@@ -1,0 +1,71 @@
+<ion-content>
+
+  <ion-list lines="full">
+
+    <ion-item lines="none">
+      <ion-searchbar
+        [(ngModel)]="searchbarMovie"
+        placeholder="Nome"
+        showCancelButton="focus">
+      </ion-searchbar>
+    </ion-item>
+  
+   <ion-item lines="none">
+      <ion-select
+        [(ngModel)]="gendersSelected"
+        multiple="false"
+        cancelText="Cancelar"
+        okText="Confirmar"
+        placeholder="Gênero">
+        <ion-select-option
+            *ngFor="let gender of genders"
+            [value]="gender.id"
+            [selected]="gender.name"
+            >{{ gender.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item lines="none">
+      <ion-label position="floating">
+        Popularidade:
+      </ion-label>
+      <ion-range
+        pin="true"
+        [min]="minPopularity"
+        [max]="maxPopularity"
+        color="secondary"
+        step="30"
+        snaps="true"
+        [(ngModel)]="popularity"
+        name="popularity"
+        #popularity_range>
+      </ion-range>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-buttons slot="start">
+        <ion-button
+            fill="solid"
+            expand="block"
+            color="primary"
+            (click)="doFilter()"
+            size="small">
+            Aplicar
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button
+            fill="solid"
+            expand="block"
+            color="light"
+            (click)="resetFilter()"
+            size="small">
+            Limpar
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

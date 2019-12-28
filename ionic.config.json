@@ -1,0 +1,7 @@
+{
+  "name": "fortics",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

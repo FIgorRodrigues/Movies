@@ -1,0 +1,82 @@
+<ion-header></ion-header>
+
+<ion-content color="light" class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-text color="primary">
+          <h1 class="login-title">
+            <strong>
+              Movies
+            </strong>
+          </h1>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <form [formGroup]="loginForm">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-input 
+              formControlName="email"
+              placeholder="Email:" 
+              clearInput 
+              autofocus 
+              type="email">
+            </ion-input>
+          </ion-item>
+          <div *ngFor="let errorEmail of errosMessagesLoginForm.email">
+            <for-error-message 
+              *ngIf="loginForm.get('email')
+                .hasError(
+                  errorEmail.type) &&
+                  (loginForm.get('email').dirty ||
+                  loginForm.get('email').touched
+                )"
+              [errorMessage]="errorEmail.message">
+            </for-error-message>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-input 
+              placeholder="Senha:" 
+              clearInput
+              type="password"
+              formControlName="password">
+            </ion-input>
+          </ion-item>
+          <div *ngFor="let errorPassword of errosMessagesLoginForm.password">
+            <for-error-message 
+              *ngIf="loginForm.get('password')
+                .hasError(
+                  errorPassword.type) &&
+                  (loginForm.get('password').dirty ||
+                  loginForm.get('password').touched
+                )"
+              [errorMessage]="errorPassword.message">
+            </for-error-message>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button
+            shape="round"
+            type="submit"
+            (click)="onSubmitLogin()"
+            expand="full"
+            class="buttonLogin"
+            [disabled]="loginForm.invalid"
+          >
+            Entrar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>
+
+<ion-footer></ion-footer>
