@@ -14,7 +14,7 @@ export class SerializerResponseInterceptor implements HttpInterceptor {
         req = this._addHeaders(req);
         return next.handle(req)
         .pipe(
-            debounceTime(300),
+            debounceTime(500),
             retry(3),
             tap((responseMovie: any) => {
                 if(responseMovie.type === 0)
@@ -24,13 +24,11 @@ export class SerializerResponseInterceptor implements HttpInterceptor {
                 if(existResults) {
                     return body.results.forEach(movie => {
                         movie['poster_path'] = IMAGE_MOVIE + movie.poster_path;
-                        movie['release_date'] = this._normalizeDateProvider.getMonthMoreYear(movie.release_date); 
                         return movie;
                     });
                 }
                 else {
                     body['poster_path'] = IMAGE_MOVIE + body.poster_path;
-                    body['release_date'] = this._normalizeDateProvider.getFullYears(body.release_date);
                     return body;
                 }
             }),

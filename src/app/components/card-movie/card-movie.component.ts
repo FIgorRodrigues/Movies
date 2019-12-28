@@ -1,5 +1,6 @@
 import { Input, Component, Output, EventEmitter, ElementRef } from '@angular/core';
 import { Movie } from 'src/app/models/movie';
+import { NormalizeDateProvider } from 'src/app/providers/normalize-date-provider';
 
 @Component({
     selector: 'for-card-movie',
@@ -12,7 +13,7 @@ export class CardMovieComponent {
     @Input() movies: Movie[] = [];
     @Output() sendIdMovie = new EventEmitter<number>();
     
-    constructor() {}
+    constructor(private _normalizeDateProvider: NormalizeDateProvider) {}
 
     goToPageInfoMovie(idMovie: number) {
         this.sendIdMovie.emit(idMovie);
@@ -20,7 +21,7 @@ export class CardMovieComponent {
 
     serializeTextCard(text: string) {
         let truncated = text;
-        const maxLength = 94;
+        const maxLength = 90;
         if (truncated.length > maxLength)
             truncated = truncated.substr(0, maxLength) + '...';
         return truncated;

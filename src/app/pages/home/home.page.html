@@ -23,13 +23,27 @@
   </ion-segment>
 
   <h3>Lista de filmes</h3>
+
   <div *ngIf="movies.length == 0" class="spinner-loading-movies">
     <ion-spinner color="primary" name="dots"></ion-spinner>
   </div>
+  
   <for-card-movie 
     [movies]="movies"
     (sendIdMovie)="_goToPageInfoMovie($event)">
   </for-card-movie>
+
+  <ion-infinite-scroll 
+    threshold="10%"
+    (ionInfinite)="loadData($event)"
+    [disabled]="_disableInfinityScroll"
+    >
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Carregando...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>
 
 <ion-footer></ion-footer>

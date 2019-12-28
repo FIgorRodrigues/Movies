@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NormalizeDateProvider } from 'src/app/providers/normalize-date-provider';
 
 @Component({
   selector: 'for-card-movie-info',
@@ -9,6 +10,6 @@ export class CardMovieInfoComponent {
 
   @Input() infoMovie = {};
 
-  constructor() {}
+  constructor(private _normalizeDateProvider: NormalizeDateProvider) {}
 
 }

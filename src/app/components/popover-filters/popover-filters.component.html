@@ -1,27 +1,22 @@
 <ion-content>
 
-  <ion-list>
-    <ion-item>
+  <ion-list lines="full">
+
+    <ion-item lines="none">
       <ion-searchbar
         [(ngModel)]="searchbarMovie"
-        placeholder="Nome do filme"
+        placeholder="Nome"
         showCancelButton="focus">
       </ion-searchbar>
     </ion-item>
   
-    <ion-item>
-      <ion-label>
-        <h2>
-          Gênero:
-        </h2>
-      </ion-label>
-      <br>
+   <ion-item lines="none">
       <ion-select
-        [(ngModel)]="genders"
-        multiple="true"
+        [(ngModel)]="gendersSelected"
+        multiple="false"
         cancelText="Cancelar"
         okText="Confirmar"
-        placeholder="selecione">
+        placeholder="Gênero">
         <ion-select-option
             *ngFor="let gender of genders"
             [value]="gender.id"
@@ -31,22 +26,46 @@
       </ion-select>
     </ion-item>
   
-    <ion-item>
-      <ion-label>
+    <ion-item lines="none">
+      <ion-label position="floating">
         Popularidade:
       </ion-label>
-    
       <ion-range
-          [min]="minPopularity"
-          [max]="maxPopularity"
-          color="secondary"
-          step="30"
-          snaps="true"
-          [(ngModel)]="popularity"
-          name="popularity"
-          #popularity_range>
+        pin="true"
+        [min]="minPopularity"
+        [max]="maxPopularity"
+        color="secondary"
+        step="30"
+        snaps="true"
+        [(ngModel)]="popularity"
+        name="popularity"
+        #popularity_range>
       </ion-range>
     </ion-item>
+
+    <ion-item lines="none">
+      <ion-buttons slot="start">
+        <ion-button
+            fill="solid"
+            expand="block"
+            color="primary"
+            (click)="doFilter()"
+            size="small">
+            Aplicar
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button
+            fill="solid"
+            expand="block"
+            color="light"
+            (click)="resetFilter()"
+            size="small">
+            Limpar
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
   </ion-list>
 
 </ion-content>

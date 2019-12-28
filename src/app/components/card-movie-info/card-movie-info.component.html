@@ -6,13 +6,15 @@
           <img 
             *ngIf="infoMovie.poster_path" 
             class="image-movie-info" 
-            [src]="infoMovie.poster_path"/>
+            [src]="infoMovie.poster_path"
+            [alt]="infoMovie.title"
+            [title]="infoMovie.title"/>
         </div>
         <ion-card-header>
           <ion-card-title>
             {{infoMovie.title}}
           </ion-card-title>
-          <p>Lançamento: {{infoMovie.release_date}}.</p>
+          <p>Lançamento: {{ _normalizeDateProvider.getFullYears(infoMovie.release_date) }}.</p>
           <p>Duração: {{infoMovie.runtime}} minutos.</p>
         </ion-card-header>
         <ion-card-content *ngIf="infoMovie.overview">

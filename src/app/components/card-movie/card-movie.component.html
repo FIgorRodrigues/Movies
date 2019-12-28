@@ -1,14 +1,17 @@
 <ion-grid>
-  <ion-row align-items-center justify-content-center>
-    <ion-col align-self-center *ngFor="let movie of movies" size="12" size-md="4" size-lg="4">
+  <ion-row class="ion-align-self-center" class="ion-justify-content-center">
+    <ion-col class="ion-align-self-center" *ngFor="let movie of movies" size="12" size-md="4" size-lg="4">
       <ion-card button routerDirection="forward" (click)="goToPageInfoMovie(movie.id)">
         <div class="container-img">
-          <img class="image-movie" [src]="movie.poster_path"/>
+          <img class="image-movie" 
+            [src]="movie.poster_path" 
+            [alt]="movie.title"
+            [title]="movie.title"/>
         </div>
         <ion-card-header>
           <ion-card-title>{{movie.title}}</ion-card-title>
           <div class="movie-release-date">
-            <ion-label>{{movie.release_date}}</ion-label>
+            <ion-label>{{ _normalizeDateProvider.getMonthMoreYear(movie.release_date) }}</ion-label>
           </div>
         </ion-card-header>
         <ion-card-content>  
