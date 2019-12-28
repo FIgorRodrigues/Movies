@@ -155,7 +155,6 @@ export class HomePage {
       [...this.movies,...responseAPI.results]: 
       responseAPI.results;
 
-    console.log(this.movies);
   }
 
   /*private _sortByDate(results: Movie[]) { 
