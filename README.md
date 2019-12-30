@@ -19,4 +19,5 @@ Password: igor1234
 ```
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+
+Copyright (c) 2019 Francisco Igor Rodrigues de Oliveira
